@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
         src.getPixels(srcPixels, 0, w, 0, 0, w, h);
         mask.getPixels(maskPixels, 0, w, 0, 0, w, h);
         for(int i=0;i<length;i++){
-            resultPixels[i] = (maskPixels[i]>>>24)<<24|(srcPixels[i]<<8)>>>8;
+            resultPixels[i] = (maskPixels[i]&0xff000000)|(srcPixels[i]&0xffffff);
         }
         return Bitmap.createBitmap(resultPixels, w, h, Bitmap.Config.ARGB_8888);
     }
