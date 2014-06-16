@@ -32,6 +32,9 @@ public class MainActivity extends Activity {
         }
         int w = src.getWidth();
         int h = src.getHeight();
+        if(w!=mask.getWidth()||h!=mask.getHeight()){
+            return null;
+        }
         int length = w*h;
         int[] srcPixels = new int[length];
         int[] maskPixels = new int[length];
